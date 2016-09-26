@@ -5,7 +5,6 @@ Author: Liam A
 
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset
 from ggame import LineStyle, Color, Sprite, Sound
-
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 
@@ -26,6 +25,13 @@ ball.go = True
 
 def reverse(b):
     b.dir *= -1
+# Set up function for handling screen refresh
+def step():
+    if ball.go:
+        ball.x += ball.dir
+        if ball.x + ball.width > SCREEN_WIDTH or ball.x < 0:
+            ball.x -= ball.dir
+            reverse(ball)
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run()
+myapp.run(step)
