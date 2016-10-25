@@ -33,9 +33,9 @@ class SpaceShip(Sprite):
                 self.thrustframe = 1
         else:
             self.setImage(0)
-        if self.rx= -5:
+        if self.rx == -5:
             self.x=self.x-10
-        elif self.rx = 5:
+        elif self.rx == 5:
             self.x=self.x+10
     def thrustOn(self, event):
         self.thrust = 1
